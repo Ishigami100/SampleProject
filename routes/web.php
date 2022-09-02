@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['verified'])->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/gacha', [App\Http\Controllers\GachaController::class, 'index'])->name('gacha');
+    Route::get('/draw', [App\Http\Controllers\DrawController::class, 'index'])->name('draw');
+});
+
+Route::resource('/tasks', TaskController::class);
+

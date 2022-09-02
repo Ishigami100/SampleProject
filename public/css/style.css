@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+/* すべてのWebページに適用される */
+body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+/*      background-colorの変更をしてみよう */
+	background-color: #FFFFFF;
+/*	background-color: #f5f3eb;*/
+}
+.wrapper {
+	margin: 0 auto 0 auto;
+	width: 900px;
+}
+h2 {
+	color: #442220;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #442220;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+p {
+	line-height: 160%;
+}
+a:link {
+	color:#6aa4d6;
+}
+a:visited {
+	color:#6aa4d6;
+}
+a:hover {
+	color: #4f7697;
+}
+a:active {
+	color: #aed3f2;
+}
+h1 {
+	margin: 30px 0 30px 0;
+	padding: 0 0 0 0;
+	line-height: 0;
+	text-align: center;
+}
+img {
+	border-style: none;
+}
+
+/* すべてのページに適用 - navまわり - */
+#nav li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 30px;
+}
+#nav {
+	margin: 0 0 0 0;
+	padding: 15px 30px 10px 30px;
+	background-image: url(../images/menu-bg.png);
+}
+#nav li a:link {
+	color: #f5f3eb;
+	text-decoration: none;
+}
+#nav li a:visited {
+	color: #f5f3eb;
+	text-decoration: none;
+}
+#nav li a:hover {
+	color: #e4dbb9;
+	text-decoration: none;
+}
+#nav li a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* すべてのページに適用 - footer - */
+#footer{
+	background-repeat: repeat-x;
+	margin-top: 30px;
+	padding:20px 0 20px 0;
+	font-size: smaller;
+	color: #442220;
+}
+
+/* 個別のスタイル */
+/* index.html */
+.news_item {
+	margin: 0 0 0 0;
+}
+.keyvisual {
+	margin: 20px 0 0 0;
+}
+
+/* about.html */
+.float img {
+	float: left;
+	padding-right: 1em;
+}
+.clear {
+	clear: both;
+}
+table.info {
+	border-collapse: collapse;
+	border: 1px solid #b78c5f;
+}
+table.info th, table.info td {
+	padding: 8px 8px 8px 8px;
+	border: 1px solid #d6c2b5;
+	text-align: left;
+	vertical-align: middle;
+}
+table.info th {
+	background-color: #FFFFFF;
+	color: #442220;
+}
+
+/* menu.html */
+.menu_block {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.clearfix::after {
+	content: “”;
+	display: block;
+	clear: both;}
+	
+.menu_left {
+	float: left;
+	width: 280px;
+	margin-right:20px;
+}
+
+.menu_right {
+	float: right;
+	width: 280px;
+	margin-left: 20px;
+}
+table.menu_all {
+	border: none;
+	border-collapse: collapse;
+}
+table.menu_all td {
+	padding: 0;
+}
+table.menu_all td.photo {
+	padding: 0 10px 10px 0;
+}
+.menu_right h3 {
+	margin: 20px 0;
+	text-align: right;
+	font-size: 16px;
+	color: #442220;
+}
+.menu_right p {
+	text-align: right;
+	font-size: 12px;
+}
+
+/* access.html */
+div.map {
+	text-align: center;
+}
+
+/* contact.html */
+form div {
+	padding:12px;
+	border-bottom: 1px dashed #d6c2b5;
+}
+select {
+	width: 30em;
+}
+label {
+	color: #442220;
+}
+input[name=subject] {
+	width:30em;
+}
+textarea {
+	width: 30em;
+	height: 6em;
+}
+input[type=submit] {
+	margin: 20px 12px;
+	width: 30em;
+}
+
+/* スマホ用CSS */
+
+@media screen and (max-width:450px) {
+    body {
+        font-size: 13px;
+    }
+    .logo {
+        width: 200px;
+        float: clear;
+    }
+    .nav {
+        display: none;
+    }
+    .wrapper {
+        width: auto;
+        padding: 0 10px;
+    }
+    .main {
+        width: auto;
+        padding: 0;
+        border: none;
+    }
+    .side {
+        width: auto;
+    }
+    .main,
+    .side {
+        float: none;
+    }
+}

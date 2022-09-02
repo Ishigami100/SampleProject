@@ -1,0 +1,98 @@
+nav {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top:  0;
+  left: 0;
+  background-color: lightgray;
+  border-bottom: 1px solid dimgray;
+}
+ul {
+  margin-top: 31px;
+  display: flex;
+}
+ul li {
+  list-style: none;
+  margin-right: 20px;
+}
+ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.sample2{
+    position:absolute;	
+    bottom:0.1%;
+    right:0px;
+  }
+  
+.sample2 p {
+    position: absolute;
+    top: 10;
+    left: 50;
+    padding: 10px;
+    font-size:30px;
+    color: red;
+}
+/* ここまでmenu bar  */
+
+
+.sample1{
+  background: pink;
+  width: 400px;
+  height: 650px;
+  position:absolute;	
+  bottom:75px;
+  right:0px;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.sample3{
+    position:absolute;	
+    bottom:700px;
+    right:20px;
+}
+
+.container{
+  width: 28%;
+  height: 19%;
+  position:absolute;	
+  bottom:83%;
+  right:74%;
+}
+.container img{
+width:100%;
+}
+p{
+position: absolute;
+top:35%;
+left:60%;
+transform: translate(-50%,-50%);
+padding:0;
+margin:0;
+font-size:95%;
+color: red;
+}
+.container .tag{
+top: 35%;
+left:35%;
+width: 30%;
+text-align: center;
+background-color: skyblue;
+font-weight: bold;
+color: #fff;
+}
+
+.m1{
+  position:absolute;	
+  width: 40%;
+  height: 55%;
+  bottom:15%;
+  right:21%;
+}
+
