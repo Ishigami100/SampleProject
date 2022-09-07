@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/upload',[App\Http\Controllers\DrawStoreController::class,'upload']);
+Route::post('/item_store',[App\Http\Controllers\ItemStoreController::class,'index']);

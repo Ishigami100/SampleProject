@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where('status', false)->get();
+        $user = Auth::user()->name;
+        $tasks = Task::where('user_name', '=', $user)->where('status', false)->oldest('due_date')->get();
         return view ('tasks.index',compact('tasks'));
     }
 
@@ -44,6 +57,8 @@ class TaskController extends Controller
         Validator::make($request->all(), $rules, $messages)->validate();
 
         $task = new Task;
+        $user = Auth::user()->name;
+        $task->user_name = $user;
         $task->name = $request->input('task_name');
         $task->due_date = $request->input('task_due_date');
         $task->save();
@@ -94,6 +109,7 @@ class TaskController extends Controller
             $task = Task::find($id);
 
             $task->name = $request->input('task_name');
+            $task->due_date = $request->input('task_due_date');
 
             $task->save();
         }else{

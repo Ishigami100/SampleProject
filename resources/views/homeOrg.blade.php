@@ -49,27 +49,22 @@
    background-position: center center;   /* 縦横中央 */
 }
 
-a {
-  color: black;
-}
-
-
     </style>
 </head>
 <body>
   
     <div class="sample2">
       <ul id="nav">
-        <li><a href="{{ asset('../draw') }}"  > 
+        <li><a href="{{ asset('../draw') }}" target="_blank" > 
           <img src ="{{ asset('image/draw .png') }}" alt = "" width = "100%" height ="auto" border = "0">
         </a></li>
-        <li><a href="{{ asset('../tasks') }}"  > 
-          <img src ="{{ asset('image/todo.png') }}" alt = "" width = "100%" height ="auto" border = "0">
+        <li><a href="{{ asset('../draw/draw2.html') }}" target="_blank" > 
+          <img src ="{{ asset('image/button.jpg') }}" alt = "" width = "100%" height ="auto" border = "0">
         </a></li>
-        <li><a href="{{ url('/growing') }}" > 
+        <li><a href="{{ asset('../draw1.html') }}" target="_blank" > 
           <img src ="{{ asset('image/ikusei.png') }}" alt = "" width = "100%" height ="auto" border = "0">
         </a></li>
-        <li><a href="{{ asset('/gacha') }}"  > 
+        <li><a href="{{ asset('gacha.html') }}" target="_blank" > 
           <img src ="{{ asset('image/gacha.png') }}" alt = "" width = "100%" height ="auto" border = "0">
         </a></li>
         </ul>
@@ -77,18 +72,33 @@ a {
 
       <div class="container">
         <img src="{{ asset('image/tag.png') }}">
-        <p> {{ Auth::user()->name }}</p>
+        <p>name</p>
+        <p class="tag">3日目</p>
       </div>
-<a href="{{ url('/tasks') }}">
+
   <dl>
-    <h2>Complete Tasks</h2>
+    <h2>掲示板</h2>
     <div>
-      @if ($comp_tasks->isNotEmpty())
+      <dt>2020/11/07</dt>
+      <dd><a href="#">aaa</a>
+      </dd>
+    </div>
+    <div>
+      <dt>2020/11/07</dt>
+      <dd>
+        <a href="#">aaa</a>
+      </dd>
+    </div>
+  </dl>
+  <a href="{{ url('/tasks') }}">
+    <d2>
+      <h2>to do</h2>
+      @if ($tasks->isNotEmpty())
       <table border="1">
         <tbody>
-            @foreach ($comp_tasks as $item)
+            @foreach ($tasks as $item)
               <tr>
-                <div>
+                  <div>
                   <td>
                     {{-- タスク名 --}}
                     {{ $item->name }}
@@ -103,41 +113,15 @@ a {
         </tbody>
       </table>
       @endif
-    </div>
-  </dl>
-</a>
-  <a href="{{ url('/tasks') }}">
-    <d2>
-      <h2>Todo</h2>
-      <div>
-        @if ($tasks->isNotEmpty())
-        <table border="1">
-          <tbody>
-              @foreach ($tasks as $item)
-                <tr>
-                  <div>
-                    <td>
-                      {{-- タスク名 --}}
-                      {{ $item->name }}
-                    </td>
-                    <td>
-                      {{-- 締め切り --}}
-                      Due date -{{ $item->due_date }}
-                    </td>
-                  </div>
-                </tr>
-              @endforeach
-          </tbody>
-        </table>
-        @endif
       </div>
     </d2>    
   </a>
   <div class="m1">
-    <img src="{{asset("storage/".Auth::user()->name.".png")}}">
+    <img src="{{ asset('image/monster.png') }}">
   </div>
 </body>
 </html>
 
+@extends('layouts.app')
 @section('content')
 @endsection

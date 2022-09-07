@@ -1,0 +1,146 @@
+nav {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top:  0;
+  left: 0;
+}
+ul {
+  margin-top: 31px;
+  display: flex;
+}
+ul li {
+  list-style: none;
+  margin-right: 20px;
+}
+ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.sample2{
+    position:absolute;	
+    bottom:0.1%;
+    left:50%;
+}
+  
+.sample2 p {
+    position: absolute;
+    top: 10;
+    left: 50;
+    padding: 10px;
+    font-size:30px;
+    color: red;
+}
+/* ここまでmenu bar  */
+
+.t1 {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+}
+.t1 p{
+    position: absolute;
+  top: 10%;
+  left: 0%;
+
+  color: rgb(0, 0, 0);/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 2em;/*サイズ2倍*/
+  -ms-transform: translate(0%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(0%,-40%);
+  margin:0;
+  padding:0;
+  }
+
+  .t2 {
+    position: absolute;
+    bottom: 0%;
+    left: 1%;
+  }
+  .t2 p{
+      position: absolute;
+    top: 10%;
+    left: 0%;
+  
+    color: rgb(0, 0, 0);/*文字は白に*/
+    font-weight: bold; /*太字に*/
+    font-size: 2em;/*サイズ2倍*/
+    -ms-transform: translate(0%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(0%,-40%);
+    margin:0;
+    padding:0;
+    }
+
+  .m1{
+    position:absolute;	
+    width: 10%;
+    height: 19%;
+    bottom:55%;
+    right:50%;
+  }
+
+  .back{
+  }
+
+  .b1 p{
+    position: absolute;
+    top: 10%;
+    left: 0%;
+  
+    color: rgb(0, 0, 0);/*文字は白に*/
+    font-weight: bold; /*太字に*/
+    font-size: 2em;/*サイズ2倍*/
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(130%,130%);
+    margin:0;
+    padding:0;
+  }
+
+  .b2 p{
+    position: absolute;
+    top: 10%;
+    left: 24%;
+  
+    color: rgb(0, 0, 0);/*文字は白に*/
+    font-weight: bold; /*太字に*/
+    font-size: 2em;/*サイズ2倍*/
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(130%,130%);
+    margin:0;
+    padding:0;
+  }
+
+  .b3 p{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+  
+    color: rgb(0, 0, 0);/*文字は白に*/
+    font-weight: bold; /*太字に*/
+    font-size: 2em;/*サイズ2倍*/
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(130%,130%);
+    margin:0;
+    padding:0;
+  }
+
+  .b4 p{
+    position: absolute;
+    top: 10%;
+    left: 48%;
+  
+    color: rgb(0, 0, 0);/*文字は白に*/
+    font-weight: bold; /*太字に*/
+    font-size: 2em;/*サイズ2倍*/
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(130%,130%);
+    margin:0;
+    padding:0;
+  }

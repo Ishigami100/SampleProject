@@ -38,7 +38,6 @@
 </head>
 <body>
   <h3> </h3>
-
   <div class="menu_block" clearfix::after>
 
     <div class="menu_left">
@@ -93,46 +92,27 @@
 
 <div class="menu_right">
 
-  <li><a href="HOME.html" target="_blank" >
+  <li><a href="/home" target="_blank" >
     <label id="home-button">🏠HOMEに戻る
     </label>
   </a>
 </li>
   <button id="save-button">保存</button>
   <button id="clear-button">☀︎ 全消し</button>
-
+<br>
   <span id="color-palette"></span>
 
 
- <!-- 折り畳み展開ポインタ -->
-<div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
-  <a style="cursor:pointer;">▼ 図形</a>
-  </div>
-  <!--// 折り畳み展開ポインタ -->
-  
-  <!-- 折り畳まれ部分 -->
-  <div id="open" style="display:none;clear:both;">
-  
-  <!--ここの部分が折りたたまれる＆展開される部分になります。
-  自由に記述してください。-->
-   <button id="sam1-button">サンプル１</button>
-   <button id="sam2-button">サンプル２</button>
-   <button id="sam3-button">サンプル３</button>
-   <button id="sam4-button">サンプル４</button>
-   <button id="sam5-button">サンプル５</button>
-  </div>
-  <!--// 折り畳まれ部分 -->
   <br>
-  <button id="pen-button">ペンモード</button>
   <button id="eraser-button"> 消しゴムモード</button>
-
-</div> 
+  <pre><font face="ゴシック体" color="black">＊カラーパレットを動かすとペンモードに戻るよ！</font></pre>
+</div>
 
 <div>
   
 </div>
 
-
+<p id=user hidden>{{ Auth::user()->name }}</p>
 </div>
 
 <script src="{{ asset('/js/colorjoe.min.js') }}"></script>

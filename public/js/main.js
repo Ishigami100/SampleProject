@@ -4,9 +4,16 @@
 //
 // 元々書かれてた説明のコメントは削除しました。理由は次のとおりです。
 // - 今回の変更差分の説明コメントのみにすることで、どの部分で変更があったかわかりやすくするため
+
 window.addEventListener('load', () => {
+
+
   const canvas = document.querySelector('#draw-area');
   const context = canvas.getContext('2d');
+
+     // ストレージの初期化
+     var myStorage = localStorage;
+     initLocalStorage();
 
   // 現在のマウスの位置を中心に、現在選択している線の太さを「○」で表現するために使用するcanvas
   const canvasForWidthIndicator = document.querySelector('#line-width-indicator');
@@ -80,21 +87,86 @@ window.addEventListener('load', () => {
     isDrag = false;
     lastPosition.x = null;
     lastPosition.y = null;
+
+    setLocalStoreage();
+    console.log('logs')
   }
 
+  function dragEnds(event) {
+    context.closePath();
+    isDrag = false;
+    lastPosition.x = null;
+    lastPosition.y = null;
+  }
+ 
+   function initLocalStorage(){
+     myStorage.setItem("__log", JSON.stringify([]));
+   }
+   function setLocalStoreage(){
+     var png = canvas.toDataURL();
+     var logs = JSON.parse(myStorage.getItem("__log"));
   
+     setTimeout(function(){
+         logs.unshift({png:png});
+  
+         myStorage.setItem("__log", JSON.stringify(logs));
+         temp = [];
+  
+     }, 0);
+   }
+   function prevCanvas(){
+     var logs = JSON.parse(myStorage.getItem("__log"));
+     console.log(logs);
+     if(logs.length > 0)
+     {
+         temp.unshift(logs.shift());
+  
+         setTimeout(function(){
+             myStorage.setItem("__log", JSON.stringify(logs));
+             clear();
+             draw_step(logs[0]['png']);
+  
+         }, 0);
+        }
+   }
+  
+   function nextCanvas(){
+     var logs = JSON.parse(myStorage.getItem("__log"));
+     console.log(logs);
+     if(temp.length > 0)
+     {
+         logs.unshift(temp.shift());
+  
+         setTimeout(function(){
+             myStorage.setItem("__log", JSON.stringify(logs));
+             clear();
+             draw_step(logs[0]['png']);
+  
+         }, 0);
+   }
+  }
+   function draw_step(src) {
+     var img = new Image();
+     img.src = src;
+  
+     img.onload = function() {
+         context.drawImage(img, 0, 0);
+     }
+ }
+
+
 
   //button管理
   function initEventHandler() {
     const clearButton = document.querySelector('#clear-button');
     const eraserButton = document.querySelector('#eraser-button');
-    const penBotton = document.querySelector('pen-botton');
-    const backButton = document.querySelector('#back-button');
+    const penBotton = document.querySelector('pen-button');
+    const backButton = document.querySelector('#back-button');//１つ前に戻す
     const saveButton = document.querySelector('#save-button');
     const chartButton = document.querySelector('#chart-button');
-    const cancelButton = document.querySelector('#cancel-botton');
+    const cancelButton = document.querySelector('#cancel-button');//進める
 
-    //保存関数
+    //保存ボタンの処理
     saveButton.addEventListener('click', () => {
       const fd = new FormData();
       var canvasData = canvas.toDataURL("image/png");
@@ -102,11 +174,10 @@ window.addEventListener('load', () => {
       const xhr = new XMLHttpRequest();
 
     // 要素への参照を取得
-var textMsg = document.getElementById('user');
-// コンソールにテキストを表示
-console.log(textMsg.textContent);
-var user=textMsg.textContent;
-
+    var textMsg = document.getElementById('user');
+    // コンソールにテキストを表示
+    console.log(textMsg.textContent);
+    var user=textMsg.textContent;
 
       // (1) 送信先の指定
 	      xhr.open('post', '/api/upload');
@@ -118,6 +189,12 @@ var user=textMsg.textContent;
   
     });
 
+    backButton.addEventListener('click', () => {
+      prevCanvas();
+    });
+    cancelButton.addEventListener('click', () => {
+      nextCanvas();
+    });
 
     
     clearButton.addEventListener('click', clear);
@@ -151,7 +228,7 @@ var user=textMsg.textContent;
     // イベント処理を定義するようにした。
     layeredCanvasArea.addEventListener('mousedown', dragStart);
     layeredCanvasArea.addEventListener('mouseup', dragEnd);
-    layeredCanvasArea.addEventListener('mouseout', dragEnd);
+    layeredCanvasArea.addEventListener('mouseout', dragEnds);
     layeredCanvasArea.addEventListener('mousemove', event => {
       // 2つのcanvasに対する描画処理を行う
 
@@ -196,4 +273,5 @@ var user=textMsg.textContent;
 
   // 文字の太さの設定を行う機能を有効にする
   initConfigOfLineWidth();
+
 });

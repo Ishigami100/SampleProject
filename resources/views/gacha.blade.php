@@ -25,8 +25,19 @@
                 <div style="text-align: center">
                     <img src="../image/2518886.png">
                     <div class="btn-gacha">
-                        <a href="#" class="btn-gacha1">1回ガチャる</a>
-                        <a href="#" class="btn-gacha10">10回ガチャる</a>
+                        <p>所持金{{ $money }}円</p>
+                        <form action="/gacha" method="post">
+                            @csrf
+                            <input class="btn btn-default form-control" type="submit" name="gacha1" value="1回ガチャ">
+                            <input class="btn btn-default form-control" type="submit" name="gacha10" value="10回ガチャ">
+                        </form>
+
+                        <p>
+                            @foreach($result as $res)
+
+                            {{ $res }}
+                            @endforeach
+                        </p>
                     </div>
                 </div>
                 
@@ -34,6 +45,7 @@
         </div>
     </body>
 </html>
+
 
 
 @endsection

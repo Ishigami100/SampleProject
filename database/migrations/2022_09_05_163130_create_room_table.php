@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('room', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name',100);
-            $table->string('name',100);
-            $table->boolean('status')->default(false);
-            $table->date('due_date')->nullable();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->string('user_name',255);
+            $table->integer('chair');
+            $table->integer('desk');
+            $table->integer('wall');
+            $table->integer('floor');
             $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('room');
     }
 };

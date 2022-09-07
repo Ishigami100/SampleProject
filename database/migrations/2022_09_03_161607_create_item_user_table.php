@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('item_user', function (Blueprint $table) {
             $table->id();
-            $table->string('users_name');
-            $table->string('filename');
-            $table->string('path');
+            $table->string('username');
+            $table->integer('itemID');
+            $table->boolean('flag');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('item_user');
     }
 };
