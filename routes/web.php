@@ -27,22 +27,21 @@ Route::group(['middleware'=>'verified'], function(){
     Route::resource('/tasks', TaskController::class);
     Route::get('/gacha', [App\Http\Controllers\GachaController::class, 'index'])->name('gacha');
     Route::get('/draw', [App\Http\Controllers\DrawController::class, 'index'])->name('draw');
-    Route::get('/growing',[App\Http\Controllers\GrowingController::class, 'index']);
-    Route::get('/growing/furniture_kind_select', function () {
-        return view('growing.furniture_kind_select');
-    });
-    Route::get('/growing/furniture_kind_select/chair', function () {
-        return view('growing.chair');
-    });
-    Route::get('/growing/furniture_kind_select/desk', function () {
-        return view('growing.desk');
-    });
-    Route::get('/growing/furniture_kind_select/wall', function () {
-        return view('growing.wall');
-    });
-    Route::get('/growing/furniture_kind_select/floor', function () {
-        return view('growing.floor');
-    });
+    Route::get('/growing', [App\Http\Controllers\GrowingController::class, 'index']);
+    Route::get('/growing', [App\Http\Controllers\GrowingRoomController::class, 'index']);
+    Route::get('/esa', [App\Http\Controllers\EsaRoomController::class, 'index']);
+    Route::get('/asobi', [App\Http\Controllers\AsobiRoomController::class, 'index']);
+
+    Route::get('/growing/furniture_kind_select', [\App\Http\Controllers\FurnitureRoomController::class, 'index']);
+    Route::get('/growing/furniture_kind_select/chair', [App\Http\Controllers\ListChairController::class, 'index']);
+    Route::get('/growing/furniture_kind_select/desk', [App\Http\Controllers\ListDeskController::class, 'index']);
+    Route::get('/growing/furniture_kind_select/floor', [App\Http\Controllers\ListFloorController::class, 'index']);
+    Route::get('/growing/furniture_kind_select/wall', [App\Http\Controllers\ListWallController::class, 'index']);
+    Route::put('/growing/furniture_kind_select/chair', [App\Http\Controllers\ListChairController::class, 'update']);
+    Route::put('/growing/furniture_kind_select/desk', [App\Http\Controllers\ListDeskController::class, 'update']);
+    Route::put('/growing/furniture_kind_select/floor', [App\Http\Controllers\ListFloorController::class, 'update']);
+    Route::put('/growing/furniture_kind_select/wall', [App\Http\Controllers\ListWallController::class, 'update']);
+
     Route::get('/manage_item', function () {
         return view('manage_item');
     });

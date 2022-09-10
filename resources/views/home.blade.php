@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
   <link rel="stylesheet" href="{{ asset('css/alstyle_ex.css') }}">
   <title>home</title>
   <style media="screen">
@@ -43,7 +45,7 @@
 
     body {
    background-color: #486d46;            /* 背景色 */
-   background-image: url("{{ asset('image/home.png') }}"); /* 画像 */
+   background-image: url("{{ asset('image/furniture/wall/'.$rooms->wall.'.png') }}"); /* 画像 */
    background-size: cover;               /* 全画面 */
    background-attachment: fixed;         /* 固定 */
    background-position: center center;   /* 縦横中央 */
@@ -57,7 +59,6 @@ a {
     </style>
 </head>
 <body>
-  
     <div class="sample2">
       <ul id="nav">
         <li><a href="{{ asset('../draw') }}"  > 
@@ -82,7 +83,7 @@ a {
 <a href="{{ url('/tasks') }}">
   <dl>
     <h2>Complete Tasks</h2>
-    <div>
+    <div class="box">
       @if ($comp_tasks->isNotEmpty())
       <table border="1">
         <tbody>
@@ -106,10 +107,11 @@ a {
     </div>
   </dl>
 </a>
+
   <a href="{{ url('/tasks') }}">
     <d2>
       <h2>Todo</h2>
-      <div>
+      <div class="box">
         @if ($tasks->isNotEmpty())
         <table border="1">
           <tbody>
@@ -134,7 +136,7 @@ a {
     </d2>    
   </a>
   <div class="m1">
-    <img src="{{asset("storage/".Auth::user()->name.".png")}}">
+    <img src="{{asset("storage/".Auth::user()->name.".png?".random_int(0,99999999))}}">
   </div>
 </body>
 </html>

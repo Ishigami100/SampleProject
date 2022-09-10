@@ -10,6 +10,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
   <link rel="stylesheet" href="css/colorjoe.css">
   <link rel="stylesheet" href="css/Hidden_box.css">
   <link rel="stylesheet" href="css/style2.css">
@@ -92,7 +96,7 @@
 
 <div class="menu_right">
 
-  <li><a href="/home" target="_blank" >
+  <li><a href="/home" >
     <label id="home-button">🏠HOMEに戻る
     </label>
   </a>

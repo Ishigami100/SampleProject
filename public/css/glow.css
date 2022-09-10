@@ -76,10 +76,8 @@ ul li a {
 
   .m1{
     position:absolute;	
-    width: 10%;
-    height: 19%;
-    bottom:55%;
-    right:50%;
+    bottom:21%;
+    right:7%;
   }
 
   .back{
@@ -144,3 +142,5 @@ ul li a {
     margin:0;
     padding:0;
   }
+
+ 

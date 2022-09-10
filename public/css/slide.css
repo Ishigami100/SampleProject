@@ -1,0 +1,37 @@
+/* 通常（PC）ではタイル表示 */
+.slide-wrap {
+  background-color: #ccc;
+  display: flex;
+  margin: 0 auto;
+  max-width: 100%; 
+  width: 30%; /**/
+  overflow-x: scroll;
+
+  /*
+  position: absolute;
+    top: 30%; 
+    left: 32%; */
+}
+.slide-box {
+  height: auto;
+  margin: .5%;
+  width: 24%;
+  flex: 0 0 70%;
+    margin: auto 1% auto auto;
+}
+.slide-box a {
+  background-color: #fff;
+  color: #222;
+  display: block;
+  text-decoration: none;
+}
+.slide-box img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.slide-box p {
+  font-weight: bold;
+  padding: 10px;
+  margin:.5rem auto;
+}

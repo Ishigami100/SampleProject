@@ -1,0 +1,70 @@
+/* 大枠ボックス */
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.layer{
+    /* 背景画像設定 */
+    /* background: url("{{ asset('image/furniture/wall/'.$rooms->wall.'.png') }}") no-repeat 0 0;
+    background-size: 100%; */
+    /* ボックス配置指定 */
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    /* ボックスサイズ指定 */
+}
+
+.floor{
+    /* ボックス配置指定 */
+    z-index: 10;
+    position: absolute;
+    bottom: 20%;
+    right: 30%;
+}
+
+/* 家具の基本設定 */
+.floor-img{
+    pointer-events: none;
+}
+
+/* 重ねるボックスの設定 */
+.chair{
+    /* ボックス配置指定 */
+    z-index: 20;
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+}
+
+/* いすの基本設定 */
+.chair-img{
+    pointer-events: none;
+}
+
+.desk{
+    /* ボックス配置指定 */
+    z-index: 20;
+    position: absolute;
+    bottom: 30%;
+    right: 30%;
+}
+
+/* 家具の基本設定 */
+.desk-img{
+    pointer-events: none;
+}
+
+.buttons{
+    z-index: 40;
+}
+
+.monster{
+    z-index: 30;
+    position: absolute;
+    bottom: 40%;
+    right: 60%;
+}
+
+.backbutton{
+    left: 0%;
+}

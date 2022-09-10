@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Money;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -118,6 +119,13 @@ class TaskController extends Controller
             $task->status = true;
 
             $task->save();
+            $user = Auth::user()->name;
+            $num=Money::where('username', '=', $user)->first()->number;
+
+            Money::where('username', '=',$user)->update([
+                'username' =>$user,
+                'number'=>$num+1,
+            ]);
         }
 
         return redirect('/tasks');

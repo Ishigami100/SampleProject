@@ -58,9 +58,9 @@ body {
 
 .container{
   width: 28%;
-  height: 19%;
+  height: 49%;
   position:absolute;	
-  bottom:83%;
+  bottom:69%;
   right:74%;
 }
 .container img{
@@ -68,17 +68,17 @@ width:100%;
 }
 p{
 position: absolute;
-top:35%;
-left:60%;
+top:46%;
+left:50%;
 transform: translate(-50%,-50%);
 padding:0;
 margin:0;
-font-size:95%;
-color: red;
+font-size:155%;
+color: rgb(0, 0, 0);
 }
 .container .tag{
-top: 35%;
-left:35%;
+top: 33%;
+left:33%;
 width: 30%;
 text-align: center;
 background-color: skyblue;
@@ -91,5 +91,13 @@ font-weight: bold;
   height: 55%;
   bottom:15%;
   right:21%;
+}
+
+.box {
+  position:absolute;
+  width: 99%;                /* 横幅を200pxに指定 */
+  height: 82%;               /* 横幅を200pxに指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
 }
 

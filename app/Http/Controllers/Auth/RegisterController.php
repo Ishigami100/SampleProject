@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Room;
+use App\Models\Money;
+use App\Models\Item_user;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,7 +67,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        Room::create([
+            'user_name' => $data['name'],
+            'chair'=>0,
+            'desk'=>0,
+            'wall'=>0,
+            'floor'=>0,
+        ]);
+
+        Money::create([
+            'username'=>$data['name'],
+            'number'=>0,
+        ]);
+        for($i=1;$i<=8;$i++){
+            $x=$i%4;
+            if($x==0)$x=4;
+            Item_user::create([
+                'username'=>$data['name'],
+                'itemID'=>$i,
+                'flag'=>0,
+                'furnitureID'=>$x,
+            ]);
+        }
+        
+        return  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

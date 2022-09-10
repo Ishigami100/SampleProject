@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item_user extends Model
 {
+  use HasFactory;
+  protected $table = 'item_user';
+  
     protected $fillable = [
-        'id',
         'username',
         'itemID',
         'flag',
+        'furnitureID'
       ];
 }

@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
+    background-size: cover;
+    background-color: #f1f1f1;
+
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .label{
+  display:block;
+  float:left;
+  width:auto;
+  margin:1em 0;
+  padding: 0.3em;
+  text-align: center;
+}
+  
+  
+  .btn-gacha {
+    font-size: 50px;
+    text-align: center;
+    margin: 0px 40px;
+  }
+  
+  .btn-gacha p {
+    margin: 10px 0;
+  }
+  
+  .btn {
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .btn:hover {
+    opacity: 1;
+  }
+
+header {
+height: cover;
+width: 100%;
+background-color:#000080;
+position :fixed;
+top: 0;
+z-index: 10;
+}
+
+
+footer {
+height: cover;
+width: 100%;
+background-color:#000080;
+position :fixed;
+top: 0;
+z-index: 10;
+}

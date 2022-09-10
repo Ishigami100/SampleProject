@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('username');
             $table->integer('itemID');
             $table->boolean('flag');
+            $table->integer('furnitureID');
             $table->timestamps();
         });
     }
